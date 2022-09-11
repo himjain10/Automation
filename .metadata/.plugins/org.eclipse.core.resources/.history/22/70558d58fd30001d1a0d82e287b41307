@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/dk/Desktop/MWS/MCE-Tests">
+        <classes>
+            <class name="com.mce.tests.CreateMappingPageTest">
+                <methods>
+                    <include name="verifyHeadingText"/>
+                    <include name="verifySubHeadingText"/>
+                    <include name="verifyNewMappingCreatedFlow1"/>
+                    <include name="verifyAllToolTips"/>
+                </methods>
+            </class>
+            <class name="com.mce.tests.LandingPageTest">
+                <methods>
+                    <include name="verifyTitle"/>
+                    <include name="verifyHelpPageTitle"/>
+                    <include name="verifyLogin"/>
+                </methods>
+            </class>
+            <class name="com.mce.tests.ViewMappingPageTest">
+                <methods>
+                    <include name="verifyHeadingText"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,28 @@
+package testcases;
+
+public class LoginTest extends BaseClass{
+	
+
+
+		@Test
+		public void Test1() {
+
+			LoginPage lp = new LoginPage(driver);
+			lp.Login("abc@xyz.com","Abc@1234" );
+
+			//Step6: Validate the error message on screen
+			WebElement Error = driver.findElement(By.id("msg_box"));
+
+			String ActError = Error.getText();
+			String ExpError = "The email or password you have entered is invalid.";
+
+
+			Assert.assertTrue(Error.isDisplayed());
+			Assert.assertEquals(ActError, ExpError);
+
+
+		}
+
+	
+
+}

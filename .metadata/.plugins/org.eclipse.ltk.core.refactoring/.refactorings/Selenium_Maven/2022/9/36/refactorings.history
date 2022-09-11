@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;chromedriver&apos; to &apos;SimplilearnAssigment&apos;&#x0A;- Original project: &apos;Selenium_Maven&apos;&#x0A;- Destination element: &apos;SimplilearnAssigment&apos;&#x0A;- Original element: &apos;chromedriver&apos;" description="Copy file" destination="=SimplilearnAssigment" element1="chromedriver" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1662878331814" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,100 @@
+package com.mce.pages;
+import com.mce.base.BaseClass;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+public class CreateMappingPage extends BaseClass {
+
+
+    @FindBy(xpath = "//h6[normalize-space()='Create new mapping']")
+    WebElement CreateMappingHeading;
+    @FindBy(xpath = "//*[@id='root']/div/div[2]/div/div[1]/div/div/p]")
+    WebElement CreateMappingSubHeading;
+    @FindBy(xpath = "//input[@id='downshift-4-input']")
+    WebElement WebinarDropDown;
+    @FindBy(xpath = "//input[@id='downshift-6-input']")
+    WebElement MarketoProgramDropDown;
+    @FindBy(xpath = "//input[@id='downshift-8-input']")
+    public static WebElement MarketoCampaignDropDown;
+    @FindBy(css = "#downshift-10-input")
+    public static WebElement AttendeeCampaignDropDown;
+    @FindBy(xpath = "input[value='RingCentral']")
+    WebElement RegisterFromRcRadioButton;
+    @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/label[2]/span[1]/span[1]/input[1]")
+    WebElement RegisterFromMarketoRadioButton;
+    @FindBy(xpath = "input[value='Marketo']")
+    WebElement CreateButton;
+
+    @FindBy(xpath="//body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]")
+    public static WebElement MarketoProgramToolTip;
+
+    @FindBy(xpath="//body[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/label[1]/span[2]/div[1]/span[1]")
+    public static  WebElement RCRegistrationToolTip;
+
+    @FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]")
+    public static  WebElement AttendeeToolTip;
+
+    @FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/label[1]/span[2]/div[1]/span[1]")
+    public static WebElement RCEmailToolTip;
+
+    @FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/label[2]/span[2]/div[1]/span[1]")
+    public static WebElement MarketoEmailToolTip;
+
+
+
+    public CreateMappingPage() {
+        PageFactory.initElements(driver, this);
+    }
+    public String GetHeadingText() {
+        return CreateMappingHeading.getText();
+    }
+    public String GetSubHeadingText() {
+        return CreateMappingSubHeading.getText();
+    }
+    public void SelectWebinar() {
+        WebinarDropDown.sendKeys("Marketo Test Automation" + Keys.ENTER);
+    }
+    public void SelectMarketoProgram() throws InterruptedException {
+        MarketoProgramDropDown.sendKeys("Test Automation Program");
+        Thread.sleep(4000);
+        MarketoProgramDropDown.sendKeys(Keys.ENTER);
+        Thread.sleep(4000);
+
+        System.out.println("ENetering program name");
+        MarketoProgramDropDown.sendKeys(Keys.ENTER);
+
+        System.out.println("Waiting.....");
+        //Actions action = new Actions(driver);
+        //action.moveToElement(MarketoProgramDropDown).sendKeys("Test Automation Program").sendKeys(Keys.ENTER).build().perform();
+    }
+
+    public void SelectRegistrationFromMarketo()
+    {
+        RegisterFromMarketoRadioButton.click();
+    }
+    public void SelectMarketoCampaign() {
+        MarketoCampaignDropDown.sendKeys("rcw registration" + Keys.ENTER);
+    }
+    public void SelectAttendeeCampaign() {
+        AttendeeCampaignDropDown.sendKeys("Marketo-To-RCW" + Keys.ENTER);
+    }
+    public void ClickOnRcRegistration() {
+        RegisterFromRcRadioButton.click();
+    }
+    public void ClickOnMarketoRegistration() {
+        RegisterFromMarketoRadioButton.click();
+    }
+    public ViewMappingPage ClickOnCreateButton() {
+        CreateButton.click();
+        return new ViewMappingPage();
+    }
+
+
+
+}
